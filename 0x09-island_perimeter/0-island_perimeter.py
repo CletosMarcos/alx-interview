@@ -1,34 +1,27 @@
 #!/usr/bin/python3
-"""
-Calculate the Perimeter of an Island
+"""Island Perimeter Problem
 """
 
 
-def calculate_island_perimeter(grid):
+def island_perimeter(grid):
     """
-    Determines the perimeter of the island represented in the grid.
+    Calculates the perimeter of the island described in grid
     Args:
-        grid: A 2D list of integers where 0 represents water and 1 represents
-        land.
-    Returns:
-        The total perimeter of the island.
+        grid: 2d list of integers containing 0(water) or 1(land)
+    Return:
+        the perimeter of the island
     """
 
-    perimeter = 0
-
-    for row in range(len(grid)):
-        for col in range(len(grid[row])):
-            if grid[row][col] == 1:
-                # Check the top cell
-                if row == 0 or grid[row - 1][col] == 0:
-                    perimeter += 1
-                # Check the bottom cell
-                if row == len(grid) - 1 or grid[row + 1][col] == 0:
-                    perimeter += 1
-                # Check the left cell
-                if col == 0 or grid[row][col - 1] == 0:
-                    perimeter += 1
-                # Check the right cell
-                if col == len(grid[row]) - 1 or grid[row][col + 1] == 0:
-                    perimeter += 1
-    return perimeter
+    p = 0
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            if (grid[i][j] == 1):
+                if (i <= 0 or grid[i - 1][j] == 0):
+                    p += 1
+                if (i >= len(grid) - 1 or grid[i + 1][j] == 0):
+                    p += 1
+                if (j <= 0 or grid[i][j - 1] == 0):
+                    p += 1
+                if (j >= len(grid[i]) - 1 or grid[i][j + 1] == 0):
+                    p += 1
+    return p
